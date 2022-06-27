@@ -1,5 +1,5 @@
 # J1850VPW Module
-J1850 Arduino module.
+This module is meant for being able to transmit and recieve data on the GM class 2 serial network. This module makes use of the older motorola XC68HC58 datalink IC. I recommend reviewing the datasheet for this IC before getting started.
 ![PCB](Modules.jpg)
 
 # Gerber Files
@@ -11,4 +11,4 @@ To build this module you will need to be able to solder with hotair or hotplate 
 Check out the video for more details. https://youtu.be/fsicVHIBsBg
 
 # Sketch
-Use the write exmaple .ino to get started in arduino with this module.
+Use the write exmaple .ino to get started in arduino with this module. This makes use of Arduinos built in SPI drivers but no special plugins needed.
