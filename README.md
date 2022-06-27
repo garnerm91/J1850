@@ -11,4 +11,4 @@ To build this module you will need to be able to solder with hotair or hotplate 
 Check out the video for more details. https://youtu.be/fsicVHIBsBg
 
 # Sketch
-Use the write exmaple .ino to get started in arduino with this module. This makes use of Arduinos built in SPI drivers but no special plugins needed.
+Use the write exmaple .ino to get started in arduino with this module. This makes use of Arduinos built in SPI drivers but no special plugins needed. As of right now this sketch only transmits. Recieve is coming soon.
