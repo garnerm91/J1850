@@ -14,3 +14,4 @@ Use the write example .ino to get started in Arduino with this module. This make
 
 # Rev B
 See the Rev B folder for the Schematic. Gerber Files won't be available for Rev B due to a Silkscreen Error. Once complete, Rev C will have files.
+![PCB](RevB.jpg)
