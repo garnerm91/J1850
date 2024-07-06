@@ -6,7 +6,7 @@ This module is meant to be able to transmit and receive data on the GM class 2 s
 To make this module yourself download the .zip file. It contains all the gerber files needed. you can then upload this with your PCB fab house.
 
 # Building The Module
-To build this module, you will need to be able to solder with hot air or hotplate (due to the xtal). Everything else can actually be soldered with just a soldering iron. Use the .html file for your older BOM. You can ignore the mounting holes in the BOM; it's just how Altuim output it, and I didn't edit it. That BOM (the .HTML) is for REV A. Rev B and C have significantly different parts on them vs Rev A. Rev B and C were done in KiCAD.
+To build this module, you will need to be able to solder with hot air or hotplate (due to the xtal). Everything else can actually be soldered with just a soldering iron. Use the .html file for your older BOM. You can ignore the mounting holes in the BOM; it's just how Altuim output it, and I didn't edit it. That BOM (the .HTML) is for REV A. Rev B and C have significantly different parts on them vs Rev A. Rev B and C were done in KiCAD. Rev C has the bom in its folder. It is the .csv file
 
 # Sketch
 Use the write example .ino to get started in Arduino with this module. This makes use of Arduino built-in SPI drivers, but no special plugins are needed. This First sketch only transmits. Receive Example is working and tested. It is the second sketch.
