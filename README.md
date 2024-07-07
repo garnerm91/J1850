@@ -12,11 +12,14 @@ To build this module, you will need to be able to solder with hot air or hotplat
 Use the write example .ino to get started in Arduino with this module. This makes use of Arduino built-in SPI drivers, but no special plugins are needed. This First sketch only transmits. Receive Example is working and tested. It is the second sketch.
 
 # Rev B
-See the Rev B folder for the Schematic. Gerber Files won't be available for Rev B due to a Silkscreen Error. Once complete, Rev C will have files.
+See the Rev B folder for the Schematic. Due to a Silkscreen Error, Gerber Files won't be available for Rev B. Once complete, Rev C will have files.
 ![PCB](RevB.jpg)
 
 # Rev C
-Rev C is about the same as Rev B but with silkscreen corrections. The boards I am selling on eBay right now are Rev C.
+Rev C is about the same as Rev B but with silkscreen corrections. The boards I am selling on eBay right now are Rev C. If you want 14V out from the module, just jump JP1. Note that the boost converter can only support about 100ma, so don't overload it, or the module won't work. It's more useful as a telemetry tool to measure your microcontroller to make sure the boost is working or to power an indicator that tells you it's working. 
+
+# Design With it
+If you are using KiCad I have provided a Footprint and symbol. It is the same as my GMLAN module project. Just leave Mode 0 and Mode 1 disconnected, as they won't actually connect with this module. It can be found here: https://github.com/garnerm91/SWCAN/tree/main/FootprintPlusSym 
 
 # Support me!
 If you want to buy one from me you should be able to find them on my eBay account. https://www.ebay.com/usr/mattus.i8wvojtcv
