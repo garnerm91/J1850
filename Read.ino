@@ -1,59 +1,42 @@
 #include <SPI.h>
 
+// Define pin numbers for Chip Select and Reset
 #define csPIN  10
 #define rstPIN  8
 
+
 void setup() {
+  byte statusByte, receivedData;
   Serial.begin(9600);
   pinMode(rstPIN, OUTPUT);
   pinMode(csPIN, OUTPUT);
-  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE3));
   SPI.begin();
+  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE3));
   digitalWrite(rstPIN, LOW);
   delay(1000);
   digitalWrite(rstPIN, HIGH);
-  SPIcycle(0x12, 0x18);
+  SPIcycle(0x12, 0x18, statusByte, receivedData);
 }
 
-void SPIcycle(int firstbyte, int secondbyte) {
+void SPIcycle(int firstbyte, int secondbyte, byte &statusByte, byte &receivedData) {
   digitalWrite(csPIN, LOW);
-  delay(30);
-  SPI.transfer(firstbyte);
-  SPI.transfer(secondbyte);
-  delay(30);
+  delay(26);
+  statusByte = SPI.transfer(firstbyte);
+  receivedData = SPI.transfer(secondbyte);
+  delay(26);
   digitalWrite(csPIN, HIGH);
 }
 
 void rxdata() {
-  digitalWrite(csPIN, LOW);
-  delay(30);
-  //sends dummy byte to get status and fifo
-  byte statusByte = SPI.transfer(0x00);
-  byte receivedData = SPI.transfer(0x02);
-  // Print the received status byte and data
-  Serial.print("Status Byte: 0x");
-  Serial.println(statusByte, HEX);
-  Serial.print("Received Data: 0x");
-  Serial.println(receivedData, HEX);
-  Serial.println("-----");
-  delay(30);
-
-  // sends RFC flush byte
-  //statusByte = SPI.transfer(0x00);
-  //receivedData = SPI.transfer(0x02);
-
-  digitalWrite(csPIN, HIGH);
-
-  // Print the received status byte and data
-  //Serial.print("Status Byte: 0x");
- // Serial.println(statusByte, HEX);
-  //Serial.print("Received Data: 0x");
- // Serial.println(receivedData, HEX);
- // Serial.println("-----");
- // delay(30);
+  byte statusByte, receivedData;
+  SPIcycle(0x00, 0x02, statusByte, receivedData);
+    // Print the received status byte and data
+    Serial.print("RX: ");
+    Serial.print(statusByte, HEX);
+    Serial.print(" ");
+    Serial.println(receivedData, HEX);
 }
-
 void loop() {
-  rxdata();
-  delay(400);
+ delay(200);
+ rxdata(); 
 }
