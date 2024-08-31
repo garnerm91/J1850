@@ -20,8 +20,8 @@ void setup() {
   Serial.begin(115200);
   pinMode(rstPIN, OUTPUT);
   pinMode(csPIN, OUTPUT);
-  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE3));
   SPI.begin();
+  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE3));
   digitalWrite(rstPIN, LOW);
   delay(1000);
   digitalWrite(rstPIN, HIGH);
