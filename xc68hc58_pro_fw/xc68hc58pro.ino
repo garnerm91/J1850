@@ -28,11 +28,14 @@ void setup() {
 }
 
 word SPIcycle(int firstbyte, int secondbyte) {
-  PORTB &= ~(1 << 6);  //CS pin low
+   digitalWrite(csPIN, LOW);
+   delayMicroseconds(100);
+   //PORTB &= ~(1 << 2); //cspin
   byte statusByte = SPI.transfer(firstbyte);
   byte receivedData = SPI.transfer(secondbyte);
-  PORTB |= (1 << 6);  // CS pin high
-  delay(1);
+   digitalWrite(csPIN, HIGH);
+ // PORTB |= (1 << 2); //CSpin
+   delayMicroseconds(100);
   return (statusByte << 8) | receivedData;
 }
 // Function to receive data via SPI and print if the status byte is not 0x10
@@ -40,7 +43,7 @@ void rxdata() {
   word result = SPIcycle(0x00, 0x02);
   byte statusByte = result >> 8;
   byte receivedData = result & 0xFF;
-  if (statusByte != 0x10) {
+  if (statusByte != 0x10 && statusByte != 0x00) {
     Serial.print("RX: ");
     Serial.print(statusByte, HEX);
     Serial.print(" ");
