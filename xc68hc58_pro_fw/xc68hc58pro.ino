@@ -28,14 +28,14 @@ void setup() {
 }
 
 word SPIcycle(int firstbyte, int secondbyte) {
-   digitalWrite(csPIN, LOW);
-   delayMicroseconds(100);
-   //PORTB &= ~(1 << 2); //cspin
+  digitalWrite(csPIN, LOW);
+  delayMicroseconds(100);
+  //PORTB &= ~(1 << 2); //cspin
   byte statusByte = SPI.transfer(firstbyte);
   byte receivedData = SPI.transfer(secondbyte);
-   digitalWrite(csPIN, HIGH);
- // PORTB |= (1 << 2); //CSpin
-   delayMicroseconds(100);
+  digitalWrite(csPIN, HIGH);
+  // PORTB |= (1 << 2); //CSpin
+  delayMicroseconds(100);
   return (statusByte << 8) | receivedData;
 }
 // Function to receive data via SPI and print if the status byte is not 0x10
@@ -45,8 +45,14 @@ void rxdata() {
   byte receivedData = result & 0xFF;
   if (statusByte != 0x10 && statusByte != 0x00) {
     Serial.print("RX: ");
+    if (statusByte < 0x10) {
+      Serial.print("0");  // Print a leading 0 for single-digit values
+    }
     Serial.print(statusByte, HEX);
     Serial.print(" ");
+    if (receivedData < 0x10) {
+      Serial.print("0");  // Print a leading 0 for single-digit values
+    }
     Serial.println(receivedData, HEX);
   }
 }
@@ -128,7 +134,7 @@ void loop() {
       break;
     case IDN:
       // Print identifier and switch to standby mode
-      Serial.println("68hc58-PRO v0.3");
+      Serial.println("68hc58-PRO v0.4");
       currentCommand = STANDBY;
       break;
   }
