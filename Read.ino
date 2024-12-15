@@ -1,3 +1,5 @@
+// This example is really slow to allow you to be able to see something happen. Its way too slow reading the buffer to be useful in a car or anything like the the buffer will fill up right away
+// to use in application, the loop wont be able to have delays and the delays in spi cycle need to be 50 to 100 microseconds
 #include <SPI.h>
 
 // Define pin numbers for Chip Select and Reset
@@ -23,8 +25,8 @@ void SPIcycle(int firstbyte, int secondbyte, byte &statusByte, byte &receivedDat
   delay(26);
   statusByte = SPI.transfer(firstbyte);
   receivedData = SPI.transfer(secondbyte);
-  delay(26);
   digitalWrite(csPIN, HIGH);
+  delay(26);
 }
 
 void rxdata() {
