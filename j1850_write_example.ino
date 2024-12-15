@@ -15,11 +15,11 @@ void setup() {
 
 void SPIcycle(int firstbyte, int secondbyte){
   digitalWrite(csPIN, LOW);
-  delay(30); 
+  delay(1); 
   SPI.transfer(firstbyte);
   SPI.transfer(secondbyte);
-  delay(30);
   digitalWrite(csPIN, HIGH);
+  delay(1);
 }
 
 void loop() {
