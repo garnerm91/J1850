@@ -1,2 +1,6 @@
-03-07 Instrument cluster
-"A8831012XX" can control the Fuel level with XX being the variable.
+03-07 Instrument cluster 
+"A8 83 10 12 XX" can control the Fuel level, with XX being the variable.
+*"C8 3B 10 10 xx" Controls the transmission temp
+*"68 49 10 10 xx" controls the coolant temp
+
+"E8 FF 10 03" will keep the memory alive? Not completely sure here, but it keeps telemitry from resetting. Frames with a * in front will not display without this.
