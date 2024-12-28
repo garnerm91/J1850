@@ -5,6 +5,6 @@
 "A8 4B 10 11 XX" controls the Oil pressure
 "88 73 40 08 xx yy" controls voltage. XX is major and yy is minor. comes from BCM.
 
-"E8 FF 10 03" will keep the memory alive? Not completely sure here, but it keeps telemitry from resetting. This came from PCM. Only works for PCM messages.
+"E8 FF 10 03" will keep the memory alive? Not completely sure here, but it keeps telemetry from resetting. This came from PCM. Only works for PCM messages.
 
 Not controlled via class 2: Speed (pin a4 pulsed), Tach (pin a5 pulsed), Check engine (pin A1 Short low on)
