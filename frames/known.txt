@@ -9,6 +9,18 @@
 "E8 FF 10 03" will keep the memory alive? I'm not entirely sure here, but it keeps telemetry from resetting. This came from PCM. Only works for PCM messages.
 "E8 FF 40 03" Same as above except BCM source
 
+--PRND---
+"68 EA 10 0A XX" 
+For XX
+01 P
+02 R
+03 N
+04 drive
+06 1st
+07 2nd
+08 3rd
+09 D as well
+
 --Lights/DIC message--
 "8A EA 10 A0 8C 00" Turns on cruise control light
 "8A EA 58 20 94 00" Turns off the Airbag light.
