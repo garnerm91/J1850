@@ -1,12 +1,41 @@
-03-07 Instrument cluster 
+03-07 GM Truck Instrument cluster 
+---telemetry---
 "A8 83 10 12 XX" can control the Fuel level, with XX being the variable. comes from pcm (00-FF range)
 "C8 3B 10 10 xx" Controls the transmission temp comes from pcm 
 "68 49 10 10 xx" controls the coolant temp comes from pcm
 "A8 4B 10 11 XX" controls the Oil pressure (range seems to be 00-80 on gas cluster. I would assume diesel clusters use the full range 00-FF?)
 "88 73 40 08 xx yy" controls voltage. XX is major and yy is minor. comes from BCM.
 
-
 "E8 FF 10 03" will keep the memory alive? I'm not entirely sure here, but it keeps telemetry from resetting. This came from PCM. Only works for PCM messages.
-WANTED BCM equivalent of the above frame. I don't have a BCM, so I won't be able to find this myself.
+"E8 FF 40 03" Same as above except BCM source
 
+--Lights/DIC message--
+"8A EA 10 A0 8C 00" Turns on cruise control light
+"8A EA 58 20 94 00" Turns off the Airbag light.
+Note: it doesn't seem to really care if the source is correct; in other words, the airbag light can be set by the PCM (source 10) if you wanted. Data byte 1 is the On/off with A0 being on and 20 being off. Data 2 is what light, and data 3 doesn't seem to matter.
+Following the above info known lighs are:
+84 Check Oil
+85 engine overheat
+8C Cruise Control
+8E battery
+90 seat belt
+91 High beam
+94 Airbag
+95 ABS
+9B No traction control
+9C Low Coolant
+9E carLock? IDK what that icon means
+A6 Park brake (maybe?)
+
+
+---Troubleshooting commands---
+6C 60 F1 AE 20 FF FF 00 00 00 00 Sweeps all gauges
+6c 60 F1 AE 11 01 01 00 00 00 00 Truns on all lights
+6C 60 F1 AE 21 88 88 00 00 00 00 Truns on all blocks of the screen
+
+---other info---
 Not controlled via class 2: Speed (pin a4 pulsed), Tach (pin a5 pulsed), Check engine (pin A1 Short low on)
+
+
+---Frame format---
+Priority, Destination, Source, Data
