@@ -48,10 +48,14 @@ A6 Park brake (maybe?)
 ---other info---
 Not controlled via class 2: Speed (pin a4 pulsed), Tach (pin a5 pulsed), Check engine (pin A1 Short low on)
 Untested frames found on the internet:
-"88 1B 10 10 XX YY" Engine RPM the instrument cluster doesn't respond to this, it responds to pulses on pin a5.
+"88 1B 10 10 XX YY" Engine RPM The instrument cluster doesn't respond to this; it responds to pulses on pin a5.
 "88 29 10 01 XX" Speed, Same as above except pin a4.
 
+I wanted to know how to write a custom message on the DIC. This can be done. 
 
 
 ---Frame format---
-Priority, Destination, Source, Data. At the end of the frame there is CRC.
+Byte1 = priority
+Byte2 = physical ID of destination
+Byte3 = physical ID of source
+The rest are Data. At the end of the frame, there is CRC. Note that the CRC is not shown with the 68hc58. It reports a CCRB instead. ELM327 devices will show the CRC. 
