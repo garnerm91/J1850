@@ -1,2 +1,2 @@
 Example Gauge
-![PCB](gauge.jpg)
+![PCB](gauge.JPG)
