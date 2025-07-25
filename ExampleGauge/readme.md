@@ -5,3 +5,4 @@
 - J1850 VPW module https://www.ebay.com/usr/mattus.i8wvojtcv
 ## Example Gauge Drawing
 ![PCB](gauge.JPG)
+* NOTE: I used a different screen in the drawing, but the one in the BOM is correct.
