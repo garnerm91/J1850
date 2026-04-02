@@ -51,11 +51,25 @@ Untested frames found on the internet:
 "88 1B 10 10 XX YY" Engine RPM The instrument cluster doesn't respond to this; it responds to pulses on pin a5.
 "88 29 10 01 XX" Speed, Same as above except pin a4.
 
-I wanted to know how to write a custom message on the DIC. This can be done. 
-
 
 ---Frame format---
 Byte1 = priority
 Byte2 = physical ID of destination
 Byte3 = physical ID of source
 The rest are Data. At the end of the frame, there is CRC. Note that the CRC is not shown with the 68hc58. It reports a CCRB instead. ELM327 devices will show the CRC. 
+
+
+--- Data from VPW ANALYZER ---
+phys_addresses
+        0x10:"ECU",
+        0x28:"ABS",
+        0x40:"BCM",
+        0x58:"SRS",
+        0x60:"Cluster",
+        0x80:"Radio",
+        0x99:"HVAC",
+        0xA0:"LDCM",
+        0xA1:"RDCM",
+        0xA6:"SCM",
+        0xB0:"Remotes",
+        0xF1:"Ext Tool"
