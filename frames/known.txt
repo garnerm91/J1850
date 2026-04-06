@@ -22,14 +22,14 @@ For XX
 09 D as well
 
 --Lights/DIC message--
-"8A EA 10 A0 8C 00" Turns on cruise control light
+"8A EA 10 A0 8C 00" Turns on cruise control light. Change the 00 to 50 and it will blink.
 "8A EA 58 20 94 00" Turns off the Airbag light.
 Note: it doesn't seem to really care if the source is correct; in other words, the airbag light can be set by the PCM (source 10) if you wanted. Data byte 1 is the On/off with A0 being on and 20 being off. Data 2 is what light, and data 3 doesn't seem to matter.
 Following the above info known lighs are:
 84 Check Oil
 85 engine overheat
 8C Cruise Control
-8E battery
+8E and E2 battery
 90 seat belt
 91 High beam
 94 Airbag
@@ -39,6 +39,7 @@ Following the above info known lighs are:
 9E carLock? IDK what that icon means
 A6 Park brake (maybe?)
 
+A8 DF 40 91 XX This will dim the displays 00-FF are brightness
 
 ---Troubleshooting commands---
 6C 60 F1 AE 20 FF FF 00 00 00 00 Sweeps all gauges
@@ -73,3 +74,6 @@ phys_addresses
         0xA6:"SCM",
         0xB0:"Remotes",
         0xF1:"Ext Tool"
+
+----Not sure but it does something----
+28 FF 40 06 06 08 0A seems to reboot the cluster
