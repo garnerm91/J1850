@@ -42,6 +42,11 @@ A6 Park brake (maybe?)
 A8 DF 40 91 XX This will dim the displays 00-FF are brightness
 88 CF 40 07 XX with XX being 01 02 or 03. Driver 1, 2, or 3.
 
+---03-07 truck AC controls----
+AA B3 98 03 20 XX - vent control where XX= 02 defrost 03 feet 04 defrost and feet 05 face and feet 06 face.
+
+
+
 ---Troubleshooting commands---
 6C 60 F1 AE 20 FF FF 00 00 00 00 Sweeps all gauges
 6c 60 F1 AE 11 01 01 00 00 00 00 Truns on all lights
@@ -78,3 +83,4 @@ phys_addresses
 
 ----Not sure but it does something----
 28 FF 40 06 06 08 0A seems to reboot the cluster and the AC controls.
+88 15 11 01  gets a response from the AC controls of A9 14 98 41
