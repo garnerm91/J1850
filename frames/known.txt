@@ -77,4 +77,4 @@ phys_addresses
         0xF1:"Ext Tool"
 
 ----Not sure but it does something----
-28 FF 40 06 06 08 0A seems to reboot the cluster
+28 FF 40 06 06 08 0A seems to reboot the cluster and the AC controls.
