@@ -49,8 +49,8 @@ AA B3 98 03 20 XX - vent control where XX= 02 defrost 03 feet 04 defrost and fee
 
 ---Troubleshooting commands---
 6C 60 F1 AE 20 FF FF 00 00 00 00 Sweeps all gauges
-6c 60 F1 AE 11 01 01 00 00 00 00 Truns on all lights
-6C 60 F1 AE 21 88 88 00 00 00 00 Truns on all blocks of the screen
+6c 60 F1 AE 11 01 01 00 00 00 00 Turns on all lights
+6C 60 F1 AE 21 88 88 00 00 00 00 Turns on all blocks of the screen
 
 ---other info---
 Not controlled via class 2: Speed (pin a4 pulsed), Tach (pin a5 pulsed), Check engine (pin A1 Short low on)
@@ -58,8 +58,13 @@ Untested frames found on the internet:
 "88 1B 10 10 XX YY" Engine RPM The instrument cluster doesn't respond to this; it responds to pulses on pin a5.
 "88 29 10 01 XX" Speed, Same as above except pin a4.
 
---2002 cavilier cluster--
-88 1B 11 10 XX YY works for tach XX being major and YY being minor data 
+--2002 Cavalier cluster--
+88 1B 10 10 XX YY  tach XX being major and YY being minor data 
+8A EA 40 02 80 XX fuel XX being 00-FF level
+88 29 10 02 XX YY speedo XX being the major
+C8 7B 40 01 AA BB CC DD is the odometer value. Works like this:
+raw = (b0 << 24) | (b1 << 16) | (b2 << 8) | b3
+return raw // 103
 
 ---Frame format---
 Byte1 = priority
