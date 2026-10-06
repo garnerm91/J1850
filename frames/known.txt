@@ -61,6 +61,7 @@ Untested frames found on the internet:
 --2002 Cavalier cluster--
 88 1B 10 10 XX YY  tach XX being major and YY being minor data 
 8A EA 40 02 80 XX fuel XX being 00-FF level
+8A EA 40 02 81 XX is coolant temp 00-FF
 88 29 10 02 XX YY speedo XX being the major
 C8 7B 40 01 AA BB CC DD is the odometer value. Works like this:
 raw = (b0 << 24) | (b1 << 16) | (b2 << 8) | b3
